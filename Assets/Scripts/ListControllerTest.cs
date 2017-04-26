@@ -32,14 +32,14 @@ public class ListControllerTest : MonoBehaviour
 	{
 		_countries = Countries.Dictionary.ToList ();
 
-		_list.onItemLoaded = HandleOnItemLoadedHandler;
-		_list.onItemSelected = HandleOnItemSelectedHandler;
+		_list.onItemLoaded = HandleOnItemLoadedHandler;		// called when an item is recycled
+		_list.onItemSelected = HandleOnItemSelectedHandler;	// called when the item is selected
 
-		_list.Create (_countries.Count, _listItem);
+		_list.Create (_countries.Count, _listItem); // create the list with a number and a prefab
 		_list.gameObject.SetActive (true);
 	}
 
-	void HandleOnItemSelectedHandler (ListItemBase item)
+	void HandleOnItemSelectedHandler (ListItemBase item) // reference to the selected list item
 	{
 		if(_selectedItem != null)
 		{
@@ -56,15 +56,14 @@ public class ListControllerTest : MonoBehaviour
 		#endif
 	}
 
-	void HandleOnItemLoadedHandler (ListItemBase item)
+	void HandleOnItemLoadedHandler (ListItemBase item) // reference to the loaded list item
 	{
 		if(item == (ListItemCountry)_selectedItem)
 		{
 			_selectedItem.Select (_selectedIndex == _selectedItem.Index);	
 		}
-
-		ListItemCountry countryItem = (ListItemCountry)item;
-
+			
+		ListItemCountry countryItem = (ListItemCountry)item;	// cast to your own ListItem
 		countryItem.SetCode (_countries[item.Index].Key);
 		countryItem.SetLabel (_countries[item.Index].Value.Name);
 	}
