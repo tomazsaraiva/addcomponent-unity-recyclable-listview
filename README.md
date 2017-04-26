@@ -3,4 +3,4 @@
 Unity Project with a recyclable list view solution for Unity 3d.
 
 # HOW TO USE IT
-http://addcomponent.com/recyclable-list-view-unity
+http://addcomponent.com/recyclable-list-view-unity3d
