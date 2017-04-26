@@ -1,0 +1,998 @@
+{
+  "4" : {
+    "EN" : "Afghanistan",
+    "PT" : "Afeganistão"
+  },
+  "8" : {
+    "EN" : "Albania",
+    "PT" : "Albania"
+  },
+  "10" : {
+    "EN" : "Antarctica",
+    "PT" : "Antartida"
+  },
+  "12" : {
+    "EN" : "Algeria",
+    "PT" : "Algeria"
+  },
+  "16" : {
+    "EN" : "American Samoa",
+    "PT" : "Samoa américaines (les)"
+  },
+  "20" : {
+    "EN" : "Andorra",
+    "PT" : "Andorra"
+  },
+  "24" : {
+    "EN" : "Angola",
+    "PT" : "Angola"
+  },
+  "28" : {
+    "EN" : "Antigua and Barbuda",
+    "PT" : "Antigua-et-Barbuda"
+  },
+  "31" : {
+    "EN" : "Azerbaijan",
+    "PT" : "Azerbaïdjan (l')"
+  },
+  "32" : {
+    "EN" : "Argentina",
+    "PT" : "Argentine (l')"
+  },
+  "36" : {
+    "EN" : "Australia",
+    "PT" : "Australie (l')"
+  },
+  "40" : {
+    "EN" : "Austria",
+    "PT" : "Autriche (l')"
+  },
+  "44" : {
+    "EN" : "Bahamas (the)",
+    "PT" : "Bahamas (les)"
+  },
+  "48" : {
+    "EN" : "Bahrain",
+    "PT" : "Bahreïn"
+  },
+  "50" : {
+    "EN" : "Bangladesh",
+    "PT" : "Bangladesh (le)"
+  },
+  "51" : {
+    "EN" : "Armenia",
+    "PT" : "Arménie (l')"
+  },
+  "52" : {
+    "EN" : "Barbados",
+    "PT" : "Barbade (la)"
+  },
+  "56" : {
+    "EN" : "Belgium",
+    "PT" : "Belgique (la)"
+  },
+  "60" : {
+    "EN" : "Bermuda",
+    "PT" : "Bermudes (les)"
+  },
+  "64" : {
+    "EN" : "Bhutan",
+    "PT" : "Bhoutan (le)"
+  },
+  "68" : {
+    "EN" : "Bolivia (Plurinational State of)",
+    "PT" : "Bolivie (État plurinational de)"
+  },
+  "70" : {
+    "EN" : "Bosnia and Herzegovina",
+    "PT" : "Bosnie-Herzégovine (la)"
+  },
+  "72" : {
+    "EN" : "Botswana",
+    "PT" : "Botswana (le)"
+  },
+  "74" : {
+    "EN" : "Bouvet Island",
+    "PT" : "Bouvet (l'Île)"
+  },
+  "76" : {
+    "EN" : "Brazil",
+    "PT" : "Brésil (le)"
+  },
+  "84" : {
+    "EN" : "Belize",
+    "PT" : "Belize (le)"
+  },
+  "86" : {
+    "EN" : "British Indian Ocean Territory (the)",
+    "PT" : "Indien (le Territoire britannique de l'océan)"
+  },
+  "90" : {
+    "EN" : "Solomon Islands",
+    "PT" : "Salomon (Îles)"
+  },
+  "92" : {
+    "EN" : "Virgin Islands (British)",
+    "PT" : "Vierges britanniques (les Îles)"
+  },
+  "96" : {
+    "EN" : "Brunei Darussalam",
+    "PT" : "Brunéi Darussalam (le)"
+  },
+  "100" : {
+    "EN" : "Bulgaria",
+    "PT" : "Bulgarie (la)"
+  },
+  "104" : {
+    "EN" : "Myanmar",
+    "PT" : "Myanmar (le)"
+  },
+  "108" : {
+    "EN" : "Burundi",
+    "PT" : "Burundi (le)"
+  },
+  "112" : {
+    "EN" : "Belarus",
+    "PT" : "Bélarus (le)"
+  },
+  "116" : {
+    "EN" : "Cambodia",
+    "PT" : "Cambodge (le)"
+  },
+  "120" : {
+    "EN" : "Cameroon",
+    "PT" : "Cameroun (le)"
+  },
+  "124" : {
+    "EN" : "Canada",
+    "PT" : "Canada (le)"
+  },
+  "132" : {
+    "EN" : "Cabo Verde",
+    "PT" : "Cabo Verde"
+  },
+  "136" : {
+    "EN" : "Cayman Islands (the)",
+    "PT" : "Caïmans (les Îles)"
+  },
+  "140" : {
+    "EN" : "Central African Republic (the)",
+    "PT" : "République centrafricaine (la)"
+  },
+  "144" : {
+    "EN" : "Sri Lanka",
+    "PT" : "Sri Lanka"
+  },
+  "148" : {
+    "EN" : "Chad",
+    "PT" : "Tchad (le)"
+  },
+  "152" : {
+    "EN" : "Chile",
+    "PT" : "Chili (le)"
+  },
+  "156" : {
+    "EN" : "China",
+    "PT" : "Chine (la)"
+  },
+  "158" : {
+    "EN" : "Taiwan (Province of China)",
+    "PT" : "Taïwan (Province de Chine)"
+  },
+  "162" : {
+    "EN" : "Christmas Island",
+    "PT" : "Christmas (l'Île)"
+  },
+  "166" : {
+    "EN" : "Cocos (Keeling) Islands (the)",
+    "PT" : "Cocos (les Îles)/ Keeling (les Îles)"
+  },
+  "170" : {
+    "EN" : "Colombia",
+    "PT" : "Colombie (la)"
+  },
+  "174" : {
+    "EN" : "Comoros (the)",
+    "PT" : "Comores (les)"
+  },
+  "175" : {
+    "EN" : "Mayotte",
+    "PT" : "Mayotte"
+  },
+  "178" : {
+    "EN" : "Congo (the)",
+    "PT" : "Congo (le)"
+  },
+  "180" : {
+    "EN" : "Congo (the Democratic Republic of the)",
+    "PT" : "Congo (la République démocratique du)"
+  },
+  "184" : {
+    "EN" : "Cook Islands (the)",
+    "PT" : "Cook (les Îles)"
+  },
+  "188" : {
+    "EN" : "Costa Rica",
+    "PT" : "Costa Rica (le)"
+  },
+  "191" : {
+    "EN" : "Croatia",
+    "PT" : "Croatie (la)"
+  },
+  "192" : {
+    "EN" : "Cuba",
+    "PT" : "Cuba"
+  },
+  "196" : {
+    "EN" : "Cyprus",
+    "PT" : "Chypre"
+  },
+  "203" : {
+    "EN" : "Czechia",
+    "PT" : "Tchéquie (la)"
+  },
+  "204" : {
+    "EN" : "Benin",
+    "PT" : "Bénin (le)"
+  },
+  "208" : {
+    "EN" : "Denmark",
+    "PT" : "Danemark (le)"
+  },
+  "212" : {
+    "EN" : "Dominica",
+    "PT" : "Dominique (la)"
+  },
+  "214" : {
+    "EN" : "Dominican Republic (the)",
+    "PT" : "dominicaine (la République)"
+  },
+  "218" : {
+    "EN" : "Ecuador",
+    "PT" : "Équateur (l')"
+  },
+  "222" : {
+    "EN" : "El Salvador",
+    "PT" : "El Salvador"
+  },
+  "226" : {
+    "EN" : "Equatorial Guinea",
+    "PT" : "Guinée équatoriale (la)"
+  },
+  "231" : {
+    "EN" : "Ethiopia",
+    "PT" : "Éthiopie (l')"
+  },
+  "232" : {
+    "EN" : "Eritrea",
+    "PT" : "Érythrée (l')"
+  },
+  "233" : {
+    "EN" : "Estonia",
+    "PT" : "Estonie (l')"
+  },
+  "234" : {
+    "EN" : "Faroe Islands (the)",
+    "PT" : "Féroé (les Îles)"
+  },
+  "238" : {
+    "EN" : "Falkland Islands (the) [Malvinas]",
+    "PT" : "Falkland (les Îles)/Malouines (les Îles)"
+  },
+  "239" : {
+    "EN" : "South Georgia and the South Sandwich Islands",
+    "PT" : "Géorgie du Sud-et-les Îles Sandwich du Sud (la)"
+  },
+  "242" : {
+    "EN" : "Fiji",
+    "PT" : "Fidji (les)"
+  },
+  "246" : {
+    "EN" : "Finland",
+    "PT" : "Finlande (la)"
+  },
+  "248" : {
+    "EN" : "Åland Islands",
+    "PT" : "Ilhas Aland"
+  },
+  "250" : {
+    "EN" : "France",
+    "PT" : "France (la)"
+  },
+  "254" : {
+    "EN" : "French Guiana",
+    "PT" : "Guyane française (la )"
+  },
+  "258" : {
+    "EN" : "French Polynesia",
+    "PT" : "Polynésie française (la)"
+  },
+  "260" : {
+    "EN" : "French Southern Territories (the)",
+    "PT" : "Terres australes françaises (les)"
+  },
+  "262" : {
+    "EN" : "Djibouti",
+    "PT" : "Djibouti"
+  },
+  "266" : {
+    "EN" : "Gabon",
+    "PT" : "Gabon (le)"
+  },
+  "268" : {
+    "EN" : "Georgia",
+    "PT" : "Géorgie (la)"
+  },
+  "270" : {
+    "EN" : "Gambia (the)",
+    "PT" : "Gambie (la)"
+  },
+  "275" : {
+    "EN" : "Palestine, State of",
+    "PT" : "Palestine, État de"
+  },
+  "276" : {
+    "EN" : "Germany",
+    "PT" : "Allemagne (l')"
+  },
+  "288" : {
+    "EN" : "Ghana",
+    "PT" : "Ghana (le)"
+  },
+  "292" : {
+    "EN" : "Gibraltar",
+    "PT" : "Gibraltar"
+  },
+  "296" : {
+    "EN" : "Kiribati",
+    "PT" : "Kiribati"
+  },
+  "300" : {
+    "EN" : "Greece",
+    "PT" : "Grèce (la)"
+  },
+  "304" : {
+    "EN" : "Greenland",
+    "PT" : "Groenland (le)"
+  },
+  "308" : {
+    "EN" : "Grenada",
+    "PT" : "Grenade (la)"
+  },
+  "312" : {
+    "EN" : "Guadeloupe",
+    "PT" : "Guadeloupe (la)"
+  },
+  "316" : {
+    "EN" : "Guam",
+    "PT" : "Guam"
+  },
+  "320" : {
+    "EN" : "Guatemala",
+    "PT" : "Guatemala (le)"
+  },
+  "324" : {
+    "EN" : "Guinea",
+    "PT" : "Guinée (la)"
+  },
+  "328" : {
+    "EN" : "Guyana",
+    "PT" : "Guyana (le)"
+  },
+  "332" : {
+    "EN" : "Haiti",
+    "PT" : "Haïti"
+  },
+  "334" : {
+    "EN" : "Heard Island and McDonald Islands",
+    "PT" : "Heard-et-Îles MacDonald (l'Île)"
+  },
+  "336" : {
+    "EN" : "Holy See (the)",
+    "PT" : "Saint-Siège (le)"
+  },
+  "340" : {
+    "EN" : "Honduras",
+    "PT" : "Honduras (le)"
+  },
+  "344" : {
+    "EN" : "Hong Kong",
+    "PT" : "Hong Kong"
+  },
+  "348" : {
+    "EN" : "Hungary",
+    "PT" : "Hongrie (la)"
+  },
+  "352" : {
+    "EN" : "Iceland",
+    "PT" : "Islande (l')"
+  },
+  "356" : {
+    "EN" : "India",
+    "PT" : "Inde (l')"
+  },
+  "360" : {
+    "EN" : "Indonesia",
+    "PT" : "Indonésie (l')"
+  },
+  "364" : {
+    "EN" : "Iran (Islamic Republic of)",
+    "PT" : "Iran (République Islamique d')"
+  },
+  "368" : {
+    "EN" : "Iraq",
+    "PT" : "Iraq (l')"
+  },
+  "372" : {
+    "EN" : "Ireland",
+    "PT" : "Irlande (l')"
+  },
+  "376" : {
+    "EN" : "Israel",
+    "PT" : "Israël"
+  },
+  "380" : {
+    "EN" : "Italy",
+    "PT" : "Italie (l')"
+  },
+  "384" : {
+    "EN" : "Côte d'Ivoire",
+    "PT" : "Côte d'Ivoire (la)"
+  },
+  "388" : {
+    "EN" : "Jamaica",
+    "PT" : "Jamaïque (la)"
+  },
+  "392" : {
+    "EN" : "Japan",
+    "PT" : "Japon (le)"
+  },
+  "398" : {
+    "EN" : "Kazakhstan",
+    "PT" : "Kazakhstan (le)"
+  },
+  "400" : {
+    "EN" : "Jordan",
+    "PT" : "Jordanie (la)"
+  },
+  "404" : {
+    "EN" : "Kenya",
+    "PT" : "Kenya (le)"
+  },
+  "408" : {
+    "EN" : "Korea (the Democratic People's Republic of)",
+    "PT" : "Corée (la République populaire démocratique de)"
+  },
+  "410" : {
+    "EN" : "Korea (the Republic of)",
+    "PT" : "Corée (la République de)"
+  },
+  "414" : {
+    "EN" : "Kuwait",
+    "PT" : "Koweït (le)"
+  },
+  "417" : {
+    "EN" : "Kyrgyzstan",
+    "PT" : "Kirghizistan (le)"
+  },
+  "418" : {
+    "EN" : "Lao People's Democratic Republic (the)",
+    "PT" : "Lao, République démocratique populaire"
+  },
+  "422" : {
+    "EN" : "Lebanon",
+    "PT" : "Liban (le)"
+  },
+  "426" : {
+    "EN" : "Lesotho",
+    "PT" : "Lesotho (le)"
+  },
+  "428" : {
+    "EN" : "Latvia",
+    "PT" : "Lettonie (la)"
+  },
+  "430" : {
+    "EN" : "Liberia",
+    "PT" : "Libéria (le)"
+  },
+  "434" : {
+    "EN" : "Libya",
+    "PT" : "Libye (la)"
+  },
+  "438" : {
+    "EN" : "Liechtenstein",
+    "PT" : "Liechtenstein (le)"
+  },
+  "440" : {
+    "EN" : "Lithuania",
+    "PT" : "Lituanie (la)"
+  },
+  "442" : {
+    "EN" : "Luxembourg",
+    "PT" : "Luxembourg (le)"
+  },
+  "446" : {
+    "EN" : "Macao",
+    "PT" : "Macao"
+  },
+  "450" : {
+    "EN" : "Madagascar",
+    "PT" : "Madagascar"
+  },
+  "454" : {
+    "EN" : "Malawi",
+    "PT" : "Malawi (le)"
+  },
+  "458" : {
+    "EN" : "Malaysia",
+    "PT" : "Malaisie (la)"
+  },
+  "462" : {
+    "EN" : "Maldives",
+    "PT" : "Maldives (les)"
+  },
+  "466" : {
+    "EN" : "Mali",
+    "PT" : "Mali (le)"
+  },
+  "470" : {
+    "EN" : "Malta",
+    "PT" : "Malte"
+  },
+  "474" : {
+    "EN" : "Martinique",
+    "PT" : "Martinique (la)"
+  },
+  "478" : {
+    "EN" : "Mauritania",
+    "PT" : "Mauritanie (la)"
+  },
+  "480" : {
+    "EN" : "Mauritius",
+    "PT" : "Maurice"
+  },
+  "484" : {
+    "EN" : "Mexico",
+    "PT" : "Mexique (le)"
+  },
+  "492" : {
+    "EN" : "Monaco",
+    "PT" : "Monaco"
+  },
+  "496" : {
+    "EN" : "Mongolia",
+    "PT" : "Mongolie (la)"
+  },
+  "498" : {
+    "EN" : "Moldova (the Republic of)",
+    "PT" : "Moldova, République de"
+  },
+  "499" : {
+    "EN" : "Montenegro",
+    "PT" : "Monténégro (le)"
+  },
+  "500" : {
+    "EN" : "Montserrat",
+    "PT" : "Montserrat"
+  },
+  "504" : {
+    "EN" : "Morocco",
+    "PT" : "Maroc (le)"
+  },
+  "508" : {
+    "EN" : "Mozambique",
+    "PT" : "Mozambique (le)"
+  },
+  "512" : {
+    "EN" : "Oman",
+    "PT" : "Oman"
+  },
+  "516" : {
+    "EN" : "Namibia",
+    "PT" : "Namibie (la)"
+  },
+  "520" : {
+    "EN" : "Nauru",
+    "PT" : "Nauru"
+  },
+  "524" : {
+    "EN" : "Nepal",
+    "PT" : "Népal (le)"
+  },
+  "528" : {
+    "EN" : "Netherlands (the)",
+    "PT" : "Pays-Bas (les)"
+  },
+  "531" : {
+    "EN" : "Curaçao",
+    "PT" : "Curaçao"
+  },
+  "533" : {
+    "EN" : "Aruba",
+    "PT" : "Aruba"
+  },
+  "534" : {
+    "EN" : "Sint Maarten (Dutch part)",
+    "PT" : "Saint-Martin (partie néerlandaise)"
+  },
+  "535" : {
+    "EN" : "Bonaire, Sint Eustatius and Saba",
+    "PT" : "Bonaire, Saint-Eustache et Saba"
+  },
+  "540" : {
+    "EN" : "New Caledonia",
+    "PT" : "Nouvelle-Calédonie (la)"
+  },
+  "548" : {
+    "EN" : "Vanuatu",
+    "PT" : "Vanuatu (le)"
+  },
+  "554" : {
+    "EN" : "New Zealand",
+    "PT" : "Nouvelle-Zélande (la)"
+  },
+  "558" : {
+    "EN" : "Nicaragua",
+    "PT" : "Nicaragua (le)"
+  },
+  "562" : {
+    "EN" : "Niger (the)",
+    "PT" : "Niger (le)"
+  },
+  "566" : {
+    "EN" : "Nigeria",
+    "PT" : "Nigéria (le)"
+  },
+  "570" : {
+    "EN" : "Niue",
+    "PT" : "Niue"
+  },
+  "574" : {
+    "EN" : "Norfolk Island",
+    "PT" : "Norfolk (l'Île)"
+  },
+  "578" : {
+    "EN" : "Norway",
+    "PT" : "Norvège (la)"
+  },
+  "580" : {
+    "EN" : "Northern Mariana Islands (the)",
+    "PT" : "Mariannes du Nord (les Îles)"
+  },
+  "581" : {
+    "EN" : "United States Minor Outlying Islands (the)",
+    "PT" : "Îles mineures éloignées des États-Unis (les)"
+  },
+  "583" : {
+    "EN" : "Micronesia (Federated States of)",
+    "PT" : "Micronésie (États fédérés de)"
+  },
+  "584" : {
+    "EN" : "Marshall Islands (the)",
+    "PT" : "Marshall (Îles)"
+  },
+  "585" : {
+    "EN" : "Palau",
+    "PT" : "Palaos (les)"
+  },
+  "586" : {
+    "EN" : "Pakistan",
+    "PT" : "Pakistan (le)"
+  },
+  "591" : {
+    "EN" : "Panama",
+    "PT" : "Panama (le)"
+  },
+  "598" : {
+    "EN" : "Papua New Guinea",
+    "PT" : "Papouasie-Nouvelle-Guinée (la)"
+  },
+  "600" : {
+    "EN" : "Paraguay",
+    "PT" : "Paraguay (le)"
+  },
+  "604" : {
+    "EN" : "Peru",
+    "PT" : "Pérou (le)"
+  },
+  "608" : {
+    "EN" : "Philippines (the)",
+    "PT" : "Philippines (les)"
+  },
+  "612" : {
+    "EN" : "Pitcairn",
+    "PT" : "Pitcairn"
+  },
+  "616" : {
+    "EN" : "Poland",
+    "PT" : "Pologne (la)"
+  },
+  "620" : {
+    "EN" : "Portugal",
+    "PT" : "Portugal (le)"
+  },
+  "624" : {
+    "EN" : "Guinea-Bissau",
+    "PT" : "Guinée-Bissau (la)"
+  },
+  "626" : {
+    "EN" : "Timor-Leste",
+    "PT" : "Timor-Leste (le)"
+  },
+  "630" : {
+    "EN" : "Puerto Rico",
+    "PT" : "Porto Rico"
+  },
+  "634" : {
+    "EN" : "Qatar",
+    "PT" : "Qatar (le)"
+  },
+  "638" : {
+    "EN" : "Réunion",
+    "PT" : "Réunion (La)"
+  },
+  "642" : {
+    "EN" : "Romania",
+    "PT" : "Roumanie (la)"
+  },
+  "643" : {
+    "EN" : "Russian Federation (the)",
+    "PT" : "Russie (la Fédération de)"
+  },
+  "646" : {
+    "EN" : "Rwanda",
+    "PT" : "Rwanda (le)"
+  },
+  "652" : {
+    "EN" : "Saint Barthélemy",
+    "PT" : "Saint-Barthélemy"
+  },
+  "654" : {
+    "EN" : "Saint Helena, Ascension and Tristan da Cunha",
+    "PT" : "Sainte-Hélène, Ascension et Tristan da Cunha"
+  },
+  "659" : {
+    "EN" : "Saint Kitts and Nevis",
+    "PT" : "Saint-Kitts-et-Nevis"
+  },
+  "660" : {
+    "EN" : "Anguilla",
+    "PT" : "Anguilla"
+  },
+  "662" : {
+    "EN" : "Saint Lucia",
+    "PT" : "Sainte-Lucie"
+  },
+  "663" : {
+    "EN" : "Saint Martin (French part)",
+    "PT" : "Saint-Martin (partie française)"
+  },
+  "666" : {
+    "EN" : "Saint Pierre and Miquelon",
+    "PT" : "Saint-Pierre-et-Miquelon"
+  },
+  "670" : {
+    "EN" : "Saint Vincent and the Grenadines",
+    "PT" : "Saint-Vincent-et-les Grenadines"
+  },
+  "674" : {
+    "EN" : "San Marino",
+    "PT" : "Saint-Marin"
+  },
+  "678" : {
+    "EN" : "Sao Tome and Principe",
+    "PT" : "Sao Tomé-et-Principe"
+  },
+  "682" : {
+    "EN" : "Saudi Arabia",
+    "PT" : "Arabie saoudite (l')"
+  },
+  "686" : {
+    "EN" : "Senegal",
+    "PT" : "Sénégal (le)"
+  },
+  "688" : {
+    "EN" : "Serbia",
+    "PT" : "Serbie (la)"
+  },
+  "690" : {
+    "EN" : "Seychelles",
+    "PT" : "Seychelles (les)"
+  },
+  "694" : {
+    "EN" : "Sierra Leone",
+    "PT" : "Sierra Leone (la)"
+  },
+  "702" : {
+    "EN" : "Singapore",
+    "PT" : "Singapour"
+  },
+  "703" : {
+    "EN" : "Slovakia",
+    "PT" : "Slovaquie (la)"
+  },
+  "704" : {
+    "EN" : "Viet Nam",
+    "PT" : "Viet Nam (le)"
+  },
+  "705" : {
+    "EN" : "Slovenia",
+    "PT" : "Slovénie (la)"
+  },
+  "706" : {
+    "EN" : "Somalia",
+    "PT" : "Somalie (la)"
+  },
+  "710" : {
+    "EN" : "South Africa",
+    "PT" : "Afrique du Sud (l')"
+  },
+  "716" : {
+    "EN" : "Zimbabwe",
+    "PT" : "Zimbabwe (le)"
+  },
+  "724" : {
+    "EN" : "Spain",
+    "PT" : "Espagne (l')"
+  },
+  "728" : {
+    "EN" : "South Sudan",
+    "PT" : "Soudan du Sud (le)"
+  },
+  "729" : {
+    "EN" : "Sudan (the)",
+    "PT" : "Soudan (le)"
+  },
+  "732" : {
+    "EN" : "Western Sahara*",
+    "PT" : "Sahara occidental (le)*"
+  },
+  "740" : {
+    "EN" : "Suriname",
+    "PT" : "Suriname (le)"
+  },
+  "744" : {
+    "EN" : "Svalbard and Jan Mayen",
+    "PT" : "Svalbard et l'Île Jan Mayen (le)"
+  },
+  "748" : {
+    "EN" : "Swaziland",
+    "PT" : "Swaziland (le)"
+  },
+  "752" : {
+    "EN" : "Sweden",
+    "PT" : "Suède (la)"
+  },
+  "756" : {
+    "EN" : "Switzerland",
+    "PT" : "Suisse (la)"
+  },
+  "760" : {
+    "EN" : "Syrian Arab Republic",
+    "PT" : "République arabe syrienne (la)"
+  },
+  "762" : {
+    "EN" : "Tajikistan",
+    "PT" : "Tadjikistan (le)"
+  },
+  "764" : {
+    "EN" : "Thailand",
+    "PT" : "Thaïlande (la)"
+  },
+  "768" : {
+    "EN" : "Togo",
+    "PT" : "Togo (le)"
+  },
+  "772" : {
+    "EN" : "Tokelau",
+    "PT" : "Tokelau (les)"
+  },
+  "776" : {
+    "EN" : "Tonga",
+    "PT" : "Tonga (les)"
+  },
+  "780" : {
+    "EN" : "Trinidad and Tobago",
+    "PT" : "Trinité-et-Tobago (la)"
+  },
+  "784" : {
+    "EN" : "United Arab Emirates (the)",
+    "PT" : "Émirats arabes unis (les)"
+  },
+  "788" : {
+    "EN" : "Tunisia",
+    "PT" : "Tunisie (la)"
+  },
+  "792" : {
+    "EN" : "Turkey",
+    "PT" : "Turquie (la)"
+  },
+  "795" : {
+    "EN" : "Turkmenistan",
+    "PT" : "Turkménistan (le)"
+  },
+  "796" : {
+    "EN" : "Turks and Caicos Islands (the)",
+    "PT" : "Turks-et-Caïcos (les Îles)"
+  },
+  "798" : {
+    "EN" : "Tuvalu",
+    "PT" : "Tuvalu (les)"
+  },
+  "800" : {
+    "EN" : "Uganda",
+    "PT" : "Ouganda (l')"
+  },
+  "804" : {
+    "EN" : "Ukraine",
+    "PT" : "Ukraine (l')"
+  },
+  "807" : {
+    "EN" : "Macedonia (the former Yugoslav Republic of)",
+    "PT" : "Macédoine (l'ex‑République yougoslave de)"
+  },
+  "818" : {
+    "EN" : "Egypt",
+    "PT" : "Égypte (l')"
+  },
+  "826" : {
+    "EN" : "United Kingdom of Great Britain and Northern Ireland (the)",
+    "PT" : "Royaume-Uni de Grande-Bretagne et d'Irlande du Nord (le)"
+  },
+  "831" : {
+    "EN" : "Guernsey",
+    "PT" : "Guernesey"
+  },
+  "832" : {
+    "EN" : "Jersey",
+    "PT" : "Jersey"
+  },
+  "833" : {
+    "EN" : "Isle of Man",
+    "PT" : "Île de Man"
+  },
+  "834" : {
+    "EN" : "Tanzania, United Republic of",
+    "PT" : "Tanzanie, République-Unie de"
+  },
+  "840" : {
+    "EN" : "United States of America (the)",
+    "PT" : "États-Unis d'Amérique (les)"
+  },
+  "850" : {
+    "EN" : "Virgin Islands (U.S.)",
+    "PT" : "Vierges des États-Unis (les Îles)"
+  },
+  "854" : {
+    "EN" : "Burkina Faso",
+    "PT" : "Burkina Faso (le)"
+  },
+  "858" : {
+    "EN" : "Uruguay",
+    "PT" : "Uruguay (l')"
+  },
+  "860" : {
+    "EN" : "Uzbekistan",
+    "PT" : "Ouzbékistan (l')"
+  },
+  "862" : {
+    "EN" : "Venezuela (Bolivarian Republic of)",
+    "PT" : "Venezuela (République bolivarienne du)"
+  },
+  "876" : {
+    "EN" : "Wallis and Futuna",
+    "PT" : "Wallis-et-Futuna"
+  },
+  "882" : {
+    "EN" : "Samoa",
+    "PT" : "Samoa (le)"
+  },
+  "887" : {
+    "EN" : "Yemen",
+    "PT" : "Yémen (le)"
+  },
+  "894" : {
+    "EN" : "Zambia",
+    "PT" : "Zambie (la)"
+  }
+}
