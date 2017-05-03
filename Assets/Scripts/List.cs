@@ -82,14 +82,14 @@ namespace AddComponent
 
 		private List<ListItemBase> _itemsList;
 
+		private float _itemSize;
+		private float _lastPosition;
+
 		private int _itemsTotal;
+		private int _itemsVisible;
 
 		private int _itemsToRecycleBefore;
 		private int _itemsToRecycleAfter;
-
-		private Vector2 _listItemSize;
-
-		private float _lastPosition = -1;
 
 		private int _currentIndex;
 
@@ -104,6 +104,9 @@ namespace AddComponent
 
 				_content.anchorMin = new Vector2 (0, 0);
 				_content.anchorMax = new Vector2 (0, 1);
+
+				_itemSize = listItemPrefab.Size.x;
+				_content.sizeDelta = new Vector2(_itemSize * items + _spacing * (items - 1), 0);
 				break;
 
 			case ScrollOrientation.VERTICAL:
@@ -112,20 +115,49 @@ namespace AddComponent
 
 				_content.anchorMin = new Vector2 (0, 1);
 				_content.anchorMax = new Vector2 (1, 1);
+
+				_itemSize = listItemPrefab.Size.y;
+				_content.sizeDelta = new Vector2(0, _itemSize * items + _spacing * (items - 1));
 				break;
 			}
 
-			_content.sizeDelta = GetContentSize(items, listItemPrefab);
 
-			_itemsList = CreateItemsList (listItemPrefab);
+			_itemsVisible = Mathf.CeilToInt (GetViewportSize () / _itemSize);
 
+			int itemsToInstantiate = _itemsVisible;
 
-			_listItemSize = listItemPrefab.Size;
+			if (_itemsVisible == 1)
+			{
+				itemsToInstantiate = 5;
+			}
+			else if (itemsToInstantiate < items)
+			{
+				itemsToInstantiate *= 2;
+			}
+
+			if(itemsToInstantiate > items)
+			{
+				itemsToInstantiate = items;
+			}
+
+			_itemsList = new List<ListItemBase> ();
+
+			for (int i = 0; i < itemsToInstantiate; i++)
+			{
+				ListItemBase item = CreateNewItem (listItemPrefab, i, _itemSize);
+				item.onSelected = HandleOnSelectedHandler;
+				item.Index = i;
+
+				_itemsList.Add(item);
+
+				ItemLoaded (item);
+			}
+				
 			_itemsTotal = items;
 
 			_currentIndex = _itemsList.Count - 1;
 
-			_itemsToRecycleAfter = _itemsList.Count / 2;
+			_itemsToRecycleAfter = _itemsList.Count - _itemsVisible;
 
 
 			_scrollRect.onValueChanged.AddListener ((Vector2 position) => 
@@ -157,64 +189,8 @@ namespace AddComponent
 		{
 			ItemSelected (item);
 		}
-
-
-		private Vector2 GetContentSize(int items, ListItemBase prefab)
-		{
-			Vector2 contentSize = Vector2.zero;
-			float contentSizeMultiplier = items + _spacing * (items - 1);
-
-			switch (_scrollOrientation)
-			{
-			case ScrollOrientation.HORIZONTAL:
-				contentSize.x = prefab.Size.x * contentSizeMultiplier;
-				break;
-
-			case ScrollOrientation.VERTICAL:
-				contentSize.y = prefab.Size.y * contentSizeMultiplier;
-				break;
-			}
-
-			return contentSize;
-		}
-
-		private List<ListItemBase> CreateItemsList(ListItemBase prefab)
-		{
-			List<ListItemBase> itemsList = new List<ListItemBase> ();
-
-			float itemDimension = 0;
-			float viewportDimension = 0;
-
-			switch (_scrollOrientation)
-			{
-			case ScrollOrientation.HORIZONTAL:
-				viewportDimension = _viewport.rect.width;
-				itemDimension = prefab.Size.x;
-				break;
-
-			case ScrollOrientation.VERTICAL:
-				viewportDimension = _viewport.rect.height;
-				itemDimension = prefab.Size.y;
-				break;
-			}
-
-			int itemsToInstantiate = Mathf.FloorToInt (viewportDimension / itemDimension) * 2;
-
-			for (int i = 0; i < itemsToInstantiate; i++)
-			{
-				ListItemBase item = CreateNewItem (prefab, i, itemDimension);
-				item.onSelected = HandleOnSelectedHandler;
-				item.Index = i;
-
-				itemsList.Add(item);
-
-				ItemLoaded (item);
-			}
-
-			return itemsList;
-		}
-
-
+			
+			
 		private ListItemBase CreateNewItem(ListItemBase prefab, int index, float dimension)
 		{
 			GameObject instance = (GameObject)Instantiate (prefab.gameObject, Vector3.zero, Quaternion.identity);
@@ -248,31 +224,32 @@ namespace AddComponent
 			return instance.GetComponent <ListItemBase> ();
 		}
 
+
 		private void Recycle()
 		{
 			if(_lastPosition == -1)
 			{
-				_lastPosition = _content.anchoredPosition.y;
+				_lastPosition = GetContentPosition ();
 
 				return;
 			}
 
-			int rows = Mathf.FloorToInt (Mathf.Abs (_content.anchoredPosition.y - _lastPosition) / _listItemSize.y);
+			int displacedRows = Mathf.FloorToInt (Mathf.Abs (GetContentPosition() - _lastPosition) / _itemSize);
 
-			if (rows == 0)
+			if (displacedRows == 0)
 			{
 				return;
 			}
 
-			ScrollDirection direction = _lastPosition > _content.anchoredPosition.y ? ScrollDirection.PREVIOUS : ScrollDirection.NEXT;
+			ScrollDirection direction = GetScrollDirection ();
 
-			for (int i = 0; i < rows; i++)
+			for (int i = 0; i < displacedRows; i++)
 			{
 				switch (direction)
 				{
 				case ScrollDirection.NEXT:
-
-					if (_itemsToRecycleBefore > _itemsList.Count / 4 && _currentIndex < _itemsTotal - 1)
+					
+					if (_itemsToRecycleBefore >= (_itemsList.Count - _itemsVisible) / 2 && _currentIndex < _itemsTotal - 1)
 					{
 						_currentIndex++;
 
@@ -284,13 +261,11 @@ namespace AddComponent
 						_itemsToRecycleAfter--;
 					}
 
-					_lastPosition += _listItemSize.y + _spacing;
-
 					break;
 
 				case ScrollDirection.PREVIOUS:
 
-					if (_itemsToRecycleAfter > _itemsList.Count / 4 && _currentIndex > _itemsList.Count - 1)
+					if (_itemsToRecycleAfter >= (_itemsList.Count - _itemsVisible) / 2 && _currentIndex > _itemsList.Count - 1)
 					{
 						RecycleItem (direction);
 
@@ -302,10 +277,26 @@ namespace AddComponent
 						_itemsToRecycleAfter++;
 					}
 
-					_lastPosition -= _listItemSize.y + _spacing;
-
 					break;
 				}
+
+				if ((direction == ScrollDirection.NEXT && _scrollOrientation == ScrollOrientation.VERTICAL) ||
+				    (direction == ScrollDirection.PREVIOUS && _scrollOrientation == ScrollOrientation.HORIZONTAL))
+				{
+					_lastPosition += _itemSize + _spacing;
+				}
+				else
+				{
+					_lastPosition -= _itemSize + _spacing;
+				}
+
+				#if UNITY_EDITOR || DEVELOPMENT_BUILD
+				Debug.Log("_itemsToRecycleBefore: " + _itemsToRecycleBefore);
+				#endif
+
+				#if UNITY_EDITOR || DEVELOPMENT_BUILD
+				Debug.Log("_itemsToRecycleAfter: " + _itemsToRecycleAfter);
+				#endif
 			}
 		}
 
@@ -314,12 +305,23 @@ namespace AddComponent
 			ListItemBase firstItem = _itemsList [0];
 			ListItemBase lastItem = _itemsList [_itemsList.Count - 1];
 
-			float targetPositionY = (_listItemSize.y + _spacing) * -1;
+			float targetPosition = (_itemSize + _spacing);
 
 			switch(direction)
 			{
 			case ScrollDirection.NEXT:
-				firstItem.Position = new Vector2 (firstItem.Position.x, lastItem.Position.y + targetPositionY);
+
+				switch (_scrollOrientation)
+				{
+				case ScrollOrientation.HORIZONTAL:
+					firstItem.Position = new Vector2 (lastItem.Position.x + targetPosition, firstItem.Position.y);
+					break;
+
+				case ScrollOrientation.VERTICAL:
+					firstItem.Position = new Vector2 (firstItem.Position.x, lastItem.Position.y - targetPosition);
+					break;
+				}
+
 				firstItem.Index = _currentIndex;
 				firstItem.transform.SetAsLastSibling ();
 
@@ -330,7 +332,18 @@ namespace AddComponent
 				break;
 
 			case ScrollDirection.PREVIOUS:
-				lastItem.Position = new Vector2 (lastItem.Position.x, firstItem.Position.y - targetPositionY);
+
+				switch (_scrollOrientation)
+				{
+				case ScrollOrientation.HORIZONTAL:
+					lastItem.Position = new Vector2 (firstItem.Position.x - targetPosition, lastItem.Position.y);
+					break;
+
+				case ScrollOrientation.VERTICAL:
+					lastItem.Position = new Vector2 (lastItem.Position.x, firstItem.Position.y + targetPosition);
+					break;
+				}
+
 				lastItem.Index = _currentIndex - _itemsList.Count;
 				lastItem.transform.SetAsFirstSibling ();
 
@@ -341,5 +354,51 @@ namespace AddComponent
 				break;
 			}
 		}
-	}	
+
+
+		private float GetContentPosition()
+		{
+			switch (_scrollOrientation)
+			{
+			case ScrollOrientation.HORIZONTAL:
+				return _content.anchoredPosition.x;
+
+			case ScrollOrientation.VERTICAL:
+				return _content.anchoredPosition.y;
+
+			default:
+				return 0;
+			}
+		}
+
+		private float GetViewportSize()
+		{
+			switch (_scrollOrientation)
+			{
+			case ScrollOrientation.HORIZONTAL:
+				return _viewport.rect.width;
+
+			case ScrollOrientation.VERTICAL:
+				return _viewport.rect.height;
+
+			default:
+				return 0;
+			}
+		}
+
+		private ScrollDirection GetScrollDirection()
+		{
+			switch (_scrollOrientation)
+			{
+			case ScrollOrientation.HORIZONTAL:
+				return _lastPosition < GetContentPosition() ? ScrollDirection.PREVIOUS : ScrollDirection.NEXT;
+
+			case ScrollOrientation.VERTICAL:
+				return _lastPosition > GetContentPosition() ? ScrollDirection.PREVIOUS : ScrollDirection.NEXT;
+
+			default:
+				return ScrollDirection.NEXT;
+			}
+		}
+	}
 }
