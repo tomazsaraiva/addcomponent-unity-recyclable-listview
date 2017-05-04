@@ -79,6 +79,15 @@ namespace AddComponent
 		[SerializeField]
 		private float _spacing;
 
+		[SerializeField]
+		private bool _fitItemToViewport;
+
+		[SerializeField]
+		private bool _centerOnItem;
+
+		[SerializeField]
+		private float _changeItemDragFactor;
+
 
 		private List<ListItemBase> _itemsList;
 
@@ -91,7 +100,11 @@ namespace AddComponent
 		private int _itemsToRecycleBefore;
 		private int _itemsToRecycleAfter;
 
-		private int _currentIndex;
+		private int _currentItemIndex;
+		private int _lastItemIndex;
+
+		private Vector2 _dragInitialPosition;
+
 
 
 		public void Create(int items, ListItemBase listItemPrefab)
@@ -105,7 +118,13 @@ namespace AddComponent
 				_content.anchorMin = new Vector2 (0, 0);
 				_content.anchorMax = new Vector2 (0, 1);
 
+				if (_fitItemToViewport)
+				{
+					listItemPrefab.Size = new Vector2(_viewport.rect.width, listItemPrefab.Size.y);
+				}
+
 				_itemSize = listItemPrefab.Size.x;
+
 				_content.sizeDelta = new Vector2(_itemSize * items + _spacing * (items - 1), 0);
 				break;
 
@@ -116,9 +135,20 @@ namespace AddComponent
 				_content.anchorMin = new Vector2 (0, 1);
 				_content.anchorMax = new Vector2 (1, 1);
 
+				if (_fitItemToViewport)
+				{
+					listItemPrefab.Size = new Vector2(listItemPrefab.Size.x, _viewport.rect.height);
+				}
+
 				_itemSize = listItemPrefab.Size.y;
+
 				_content.sizeDelta = new Vector2(0, _itemSize * items + _spacing * (items - 1));
 				break;
+			}
+
+			if (_centerOnItem)
+			{
+				_scrollRect.inertia = false;
 			}
 
 
@@ -155,42 +185,20 @@ namespace AddComponent
 				
 			_itemsTotal = items;
 
-			_currentIndex = _itemsList.Count - 1;
+			_lastItemIndex = _itemsList.Count - 1;
 
 			_itemsToRecycleAfter = _itemsList.Count - _itemsVisible;
 
 
 			_scrollRect.onValueChanged.AddListener ((Vector2 position) => 
 			{
-				Recycle();
+				if(!_centerOnItem)
+				{
+					Recycle();
+				}
 			});	
 		}
 
-		public void Destroy()
-		{
-			_scrollRect.verticalNormalizedPosition = 1;
-
-			if(_itemsList != null)
-			{
-				for (int i = 0; i < _itemsList.Count; i++)
-				{
-					Destroy (_itemsList [i].gameObject);
-				}
-
-				_itemsList.Clear ();
-				_itemsList = null;
-			}
-
-			_lastPosition = -1;
-		}
-
-
-		void HandleOnSelectedHandler (ListItemBase item)
-		{
-			ItemSelected (item);
-		}
-			
-			
 		private ListItemBase CreateNewItem(ListItemBase prefab, int index, float dimension)
 		{
 			GameObject instance = (GameObject)Instantiate (prefab.gameObject, Vector3.zero, Quaternion.identity);
@@ -225,6 +233,12 @@ namespace AddComponent
 		}
 
 
+		void HandleOnSelectedHandler (ListItemBase item)
+		{
+			ItemSelected (item);
+		}
+
+
 		private void Recycle()
 		{
 			if(_lastPosition == -1)
@@ -248,34 +262,14 @@ namespace AddComponent
 				switch (direction)
 				{
 				case ScrollDirection.NEXT:
-					
-					if (_itemsToRecycleBefore >= (_itemsList.Count - _itemsVisible) / 2 && _currentIndex < _itemsTotal - 1)
-					{
-						_currentIndex++;
 
-						RecycleItem (direction);
-					}
-					else
-					{
-						_itemsToRecycleBefore++; 
-						_itemsToRecycleAfter--;
-					}
+					NextItem ();
 
 					break;
 
 				case ScrollDirection.PREVIOUS:
 
-					if (_itemsToRecycleAfter >= (_itemsList.Count - _itemsVisible) / 2 && _currentIndex > _itemsList.Count - 1)
-					{
-						RecycleItem (direction);
-
-						_currentIndex--;
-					}
-					else
-					{
-						_itemsToRecycleBefore--; 
-						_itemsToRecycleAfter++;
-					}
+					PreviousItem ();
 
 					break;
 				}
@@ -289,14 +283,36 @@ namespace AddComponent
 				{
 					_lastPosition -= _itemSize + _spacing;
 				}
+			}
+		}
 
-				#if UNITY_EDITOR || DEVELOPMENT_BUILD
-				Debug.Log("_itemsToRecycleBefore: " + _itemsToRecycleBefore);
-				#endif
+		private void NextItem()
+		{
+			if (_itemsToRecycleBefore >= (_itemsList.Count - _itemsVisible) / 2 && _lastItemIndex < _itemsTotal - 1)
+			{
+				_lastItemIndex++;
 
-				#if UNITY_EDITOR || DEVELOPMENT_BUILD
-				Debug.Log("_itemsToRecycleAfter: " + _itemsToRecycleAfter);
-				#endif
+				RecycleItem (ScrollDirection.NEXT);
+			}
+			else
+			{
+				_itemsToRecycleBefore++; 
+				_itemsToRecycleAfter--;
+			}
+		}
+
+		private void PreviousItem()
+		{
+			if (_itemsToRecycleAfter >= (_itemsList.Count - _itemsVisible) / 2 && _lastItemIndex > _itemsList.Count - 1)
+			{
+				RecycleItem (ScrollDirection.PREVIOUS);
+
+				_lastItemIndex--;
+			}
+			else
+			{
+				_itemsToRecycleBefore--; 
+				_itemsToRecycleAfter++;
 			}
 		}
 
@@ -322,7 +338,7 @@ namespace AddComponent
 					break;
 				}
 
-				firstItem.Index = _currentIndex;
+				firstItem.Index = _lastItemIndex;
 				firstItem.transform.SetAsLastSibling ();
 
 				_itemsList.RemoveAt (0);
@@ -344,7 +360,7 @@ namespace AddComponent
 					break;
 				}
 
-				lastItem.Index = _currentIndex - _itemsList.Count;
+				lastItem.Index = _lastItemIndex - _itemsList.Count;
 				lastItem.transform.SetAsFirstSibling ();
 
 				_itemsList.RemoveAt (_itemsList.Count - 1);
@@ -353,8 +369,106 @@ namespace AddComponent
 				ItemLoaded (lastItem);
 				break;
 			}
+
+			Canvas.ForceUpdateCanvases();
 		}
 
+
+		public void OnDragBegin (BaseEventData eventData)
+		{
+			if(_centerOnItem)
+			{
+				_dragInitialPosition = ((PointerEventData)eventData).position;
+			}
+		}
+
+		public void OnDragEnd (BaseEventData eventData)
+		{
+			if(_centerOnItem)
+			{
+				float delta = GetDragDelta (_dragInitialPosition, ((PointerEventData)eventData).position);
+
+				if (_itemsList != null && Mathf.Abs (delta) > _itemSize * _changeItemDragFactor)
+				{
+					if (Mathf.Sign (delta) == -1 && _currentItemIndex < _itemsTotal - 1)
+					{
+						NextItem ();
+
+						_currentItemIndex++;
+					}
+					else if (Mathf.Sign (delta) == 1 && _currentItemIndex > 0)
+					{
+						_currentItemIndex--;
+
+						PreviousItem ();
+					}
+				}
+
+				CenterOnItem (_currentItemIndex);
+			}
+		}
+
+		public void CenterOnItem (int index)
+		{
+			StartCoroutine (CenterOnItemCoroutine (index));	
+		}
+
+		private IEnumerator CenterOnItemCoroutine (int index)
+		{
+			yield return new WaitForEndOfFrame ();
+
+			if (_itemsList != null && _itemsList.Count > 0)
+			{
+				float positionX = 0;
+				float positionY = 0;
+
+				switch (_scrollOrientation)
+				{
+				case ScrollOrientation.HORIZONTAL:
+					positionX = -(index * (_itemSize + _spacing));
+					break;
+
+				case ScrollOrientation.VERTICAL:
+					positionY = -(index * (_itemSize + _spacing));
+					break;
+				}
+
+				_content.anchoredPosition = new Vector2 (positionX, positionY);
+
+//				NOT WORKING
+//				_scrollRect.normalizedPosition = new Vector2 (positionX, positionY);
+
+			}
+			else
+			{
+				#if UNITY_EDITOR || DEVELOPMENT_BUILD
+				Debug.Log("CENTER ON ITEM BUT ITEMS LIST IS NULL");
+				#endif
+			}
+		}
+
+
+		public void Destroy()
+		{
+			_scrollRect.verticalNormalizedPosition = 1;
+
+			if(_itemsList != null)
+			{
+				for (int i = 0; i < _itemsList.Count; i++)
+				{
+					Destroy (_itemsList [i].gameObject);
+				}
+
+				_itemsList.Clear ();
+				_itemsList = null;
+			}
+
+			_lastPosition = -1;
+		}
+
+
+
+		#region UTILS
 
 		private float GetContentPosition()
 		{
@@ -400,5 +514,22 @@ namespace AddComponent
 				return ScrollDirection.NEXT;
 			}
 		}
+
+		private float GetDragDelta(Vector2 initial, Vector2 current)
+		{
+			switch (_scrollOrientation)
+			{
+			case ScrollOrientation.HORIZONTAL:
+				return current.x - initial.x;
+
+			case ScrollOrientation.VERTICAL:
+				return current.y - initial.y;
+
+			default:
+				return 0;
+			}
+		}
+
+		#endregion
 	}
 }

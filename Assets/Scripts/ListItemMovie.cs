@@ -16,8 +16,18 @@ public class ListItemMovie : ListItemBase
 	private Image _image;
 
 
+	private Sprite _sprite;
+
+
 	public void SetImage(Sprite sprite)
 	{
+		if(_sprite != null)
+		{
+			Resources.UnloadAsset (_sprite.texture);
+		}
+
+		_sprite = sprite;
+
 		_image.sprite = sprite;
 	}
 }

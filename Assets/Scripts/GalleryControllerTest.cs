@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AddComponent;
+using System.IO;
 
 public class GalleryControllerTest : MonoBehaviour 
 {
@@ -11,21 +12,17 @@ public class GalleryControllerTest : MonoBehaviour
 	[SerializeField]
 	private ListItemBase _listItem;
 
-	[SerializeField]
-	private Sprite[] _sprites;
-
 
 	void Start()
 	{
 		_list.onItemLoaded = HandleOnItemLoadedHandler;
 
-		_list.Create (_sprites.Length, _listItem);
+		_list.Create (10, _listItem);
 		_list.gameObject.SetActive (true);
 	}
 
 	void HandleOnItemLoadedHandler (ListItemBase item)
 	{
-		ListItemMovie movieItem = (ListItemMovie)item;
-		movieItem.SetImage(_sprites[item.Index]);
+		((ListItemMovie)item).SetImage(Resources.Load<Sprite>("posters/" + item.Index));
 	}
 }
