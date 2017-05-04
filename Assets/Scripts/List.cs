@@ -523,7 +523,7 @@ namespace AddComponent
 				return current.x - initial.x;
 
 			case ScrollOrientation.VERTICAL:
-				return current.y - initial.y;
+				return (current.y - initial.y) * -1;
 
 			default:
 				return 0;
