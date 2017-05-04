@@ -51,6 +51,11 @@ namespace AddComponent
 			{
 				return _rectTransform.sizeDelta;
 			}
+
+			set
+			{
+				_rectTransform.sizeDelta = value;
+			}
 		}
 
 		public Vector2 Position
